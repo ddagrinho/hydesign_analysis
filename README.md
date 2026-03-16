@@ -27,7 +27,7 @@ Covers 6 capabilities:
 3. **Wind time series** — applies farm power curve to hourly wind speed data to get MW output
 4. **Degradation** — models power curve shift over 25 years using two approaches (shift method and loss factor), controlled by a `share` parameter
 5. **Directional power curves** — direction-dependent wake losses using 12 azimuth sectors
-6. **PyWake integration** — optional high-fidelity wake model (requires PyWake)
+
 
 ### Battery model notebook
 
@@ -129,15 +129,6 @@ The wind model uses two pre-computed surrogate files instead of running a full a
 - `genWake_v3.nc` — farm wake loss fraction (`wl`) indexed by `(specific_power, Nwt, wind_MW_per_km2, wind_speed)`
 
 Both are read with `xarray` and interpolated to any design point in microseconds.
-
-### Specific power
-
-The key turbine design parameter used throughout: `specific_power = rated_power / rotor_area` (W/m²). Lower specific power (larger rotor for the same generator) gives higher capacity factor. Typical range: 150–360 W/m².
-
-### EMS optimisation
-
-The CPLEX MILP maximises `sum(electricity_price × P_grid + H2_price × m_H2) - penalty` subject to power balance, battery dynamics, H2 storage dynamics, and the electrolyser piecewise-linear production curve. The year is solved in 62-hour batches to stay within the CPLEX Community Edition variable limit.
-
 ---
 
 ## Citation
