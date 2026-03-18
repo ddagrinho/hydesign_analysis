@@ -1,0 +1,48 @@
+# HyDesign — Python dependencies
+# Install with: pip install -r requirements.txt
+#
+# Then install the HyDesign package itself:
+#   pip install -e hydesign/
+#
+# Python >= 3.9 required (3.11 recommended)
+
+# ── Core scientific stack ────────────────────────────────────────────────────
+numpy>=2
+pandas
+scipy
+matplotlib
+
+# ── Data formats (NetCDF look-up tables) ────────────────────────────────────
+xarray
+h5netcdf
+netcdf4
+h5py>=3.13
+
+# ── Surrogate modelling (HyDesign internals) ────────────────────────────────
+smt==2.9.2
+jenn==1.0.8
+
+# ── Optimisation ─────────────────────────────────────────────────────────────
+openmdao
+cplex          # IBM CPLEX — Community Edition is free (1000 var limit)
+docplex        # Python API for CPLEX
+ortools        # Google OR-Tools (used in some EMS variants)
+
+# ── Battery degradation ──────────────────────────────────────────────────────
+rainflow       # Rainflow cycle counting
+
+# ── Financial & energy models ────────────────────────────────────────────────
+numpy-financial
+pvlib          # Photovoltaic modelling
+statsmodels
+
+# ── Utilities ────────────────────────────────────────────────────────────────
+pyyaml
+tqdm
+setuptools-scm
+
+# ── Jupyter (to run the notebooks) ──────────────────────────────────────────
+jupyter
+notebook
+ipykernel
+
